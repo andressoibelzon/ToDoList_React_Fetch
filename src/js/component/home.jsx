@@ -3,12 +3,10 @@ import React, { useState, useEffect } from "react"; //create your first componen
 const Home = () => {
   const [input, setInput] = useState("");
   const [array, setArray] = useState([]);
-  function addTask(e) {
-    console.log(e.keyCode);
-    if (e.keyCode === 13) {
+  function addTask() {
       setArray(array.concat({ label: input, done: true }));
       setInput("");
-    }
+    
   }
   function deleteTask(index) {
     let deleteTask = array[index];
@@ -68,38 +66,58 @@ const Home = () => {
     bringList();
   }, []);
 
-
-useEffect(()=>{
-    sendList()
+  useEffect(() => {
+    sendList();
     console.log("sending array");
-},[array])
-
+  }, [array]);
 
   console.log(array);
 
-
-
   return (
-    <div className="container">
-      <h1>todos</h1>
-      <ul id="myList">
-        <li className="justify-content-between">
-          <input
-            onKeyDown={addTask}
-            onChange={(e) => setInput(e.target.value)}
-            value={input}
-            placeholder="Introduzca una tarea"
-          ></input>
-        </li>
-        {array.map((item, index) => (
-          <li key={index}>
-            {item.label} <button onClick={() => deleteTask(index)}>x</button>
-          </li>
-        ))}
-      </ul>
-      <p>{array.length} items left</p>
+    <div className="container d-flex flex-column align-items-center py-3">
+      <div className="display-5 text-secondary">todos</div>
+
+      <div className="shadow p-3 mb-5 bg-white rounded my-2 d-flex w-75">
+        <input
+          type="text"
+          className="form-control-plaintext"
+          onChange={(e) => setInput(e.target.value)}
+          value={input}
+          placeholder={"Add Task"}
+        ></input>
+        <button
+          className="btn btn-primary"
+          onClick={addTask}
+          disabled={input ? "" : "disabled"}
+        >
+          +
+        </button>
+      </div>
+
+      <div className="bg-success w-75">
+        <ul className="list-group list-group-flush">
+          {array.map((t, index) => (
+            <li
+              id="lista"
+              className="list-group-item list-group-item-action d-flex justify-content-between"
+              key={index}
+            >
+              {t.label}
+              <button
+                className="btn btn-danger"
+                onClick={() => deleteTask(index)}
+              >
+                x
+              </button>
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 };
 
 export default Home;
+{
+  /* <p>{array.length} items left</p> */
+}
