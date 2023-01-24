@@ -15,7 +15,7 @@ const Home = () => {
 
   // fetch methods
   function bringList() {
-    fetch("https://assets.breatheco.de/apis/fake/todos/user/solracort", {
+    fetch("https://assets.breatheco.de/apis/fake/todos/user/andressoibelzon", {
       method: "GET", // *GET, POST, PUT, DELETE, etc.
     }) //trae info en la url pasada como valor
       .then((response) => response.json()) //esta linea convierte la respuesta en un json
@@ -23,7 +23,7 @@ const Home = () => {
       .catch((err) => console.log(err)); //el catch te comunica si algo salió mal
   }
   function newUser() {
-    fetch("https://assets.breatheco.de/apis/fake/todos/user/solracort", {
+    fetch("https://assets.breatheco.de/apis/fake/todos/user/andressoibelzon", {
       method: "POST", // *GET, POST, PUT, DELETE, etc.
       headers: {
         "Content-Type": "application/json",
@@ -36,7 +36,7 @@ const Home = () => {
       .catch((err) => console.log(err)); //el catch te comunica si algo salió mal
   }
   function sendList() {
-    fetch("https://assets.breatheco.de/apis/fake/todos/user/solracort", {
+    fetch("https://assets.breatheco.de/apis/fake/todos/user/andressoibelzon", {
       method: "PUT", // *GET, POST, PUT, DELETE, etc.
       headers: {
         "Content-Type": "application/json",
@@ -49,7 +49,7 @@ const Home = () => {
       .catch((err) => console.log(err)); //el cat
   }
   function deleteUser() {
-    fetch("https://assets.breatheco.de/apis/fake/todos/user/solracort", {
+    fetch("https://assets.breatheco.de/apis/fake/todos/user/andressoibelzon", {
       method: "DELETE", // *GET, POST, PUT, DELETE, etc.
       headers: {
         "Content-Type": "application/json",
@@ -113,11 +113,11 @@ const Home = () => {
           ))}
         </ul>
       </div>
+      <button>Agregar Usuario</button>
+      <button>Eliminar Usuario</button>
+
     </div>
   );
 };
 
 export default Home;
-{
-  /* <p>{array.length} items left</p> */
-}
