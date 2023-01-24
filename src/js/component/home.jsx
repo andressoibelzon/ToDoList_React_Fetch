@@ -4,9 +4,8 @@ const Home = () => {
   const [input, setInput] = useState("");
   const [array, setArray] = useState([]);
   function addTask() {
-      setArray(array.concat({ label: input, done: true }));
-      setInput("");
-    
+    setArray(array.concat({ label: input, done: true }));
+    setInput("");
   }
   function deleteTask(index) {
     let deleteTask = array[index];
@@ -94,7 +93,7 @@ const Home = () => {
         </button>
       </div>
 
-      <div className="bg-success w-75">
+      <div className="w-75">
         <ul className="list-group list-group-flush">
           {array.map((t, index) => (
             <li
@@ -113,9 +112,10 @@ const Home = () => {
           ))}
         </ul>
       </div>
-      <button>Agregar Usuario</button>
-      <button>Eliminar Usuario</button>
-
+      <div className="">
+          <button className="btn btn-primary mx-2" onClick={() => newUser()}>Agregar Usuario</button>
+          <button className="btn btn-primary mx-2" onClick={() => deleteUser()}>Eliminar Usuario</button>
+        </div>
     </div>
   );
 };
